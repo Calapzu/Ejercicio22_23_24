@@ -1,4 +1,7 @@
 public class UsuariosNiveles extends Usuarios{
+
+    private UsuariosNiveles(){}
+
     public boolean esAdministrador(Usuario usuario){
         return comprobarNivel(usuario, 10);
     }

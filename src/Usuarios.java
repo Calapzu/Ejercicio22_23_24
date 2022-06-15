@@ -5,14 +5,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuarios {
+    UsuariosDB usuariosDB;
+     //UsuariosDBEstadisticas usuariosDB = new UsuariosDBEstadisticas();
 
-     UsuariosDBEstadisticas usuariosDB = new UsuariosDBEstadisticas();
 
-    public ArrayList<Usuario> listarUsuarios() {
+    public Usuarios(UsuariosDB usuariosDB) {
+        this.usuariosDB = usuariosDB;
+    }
+    protected Usuarios(){}
+
+    public ArrayList<Usuario> listar() {
         return usuariosDB.obtener();
     }
 
-    public Usuario obtenerUsuario(String username){
+    public Usuario obtener(String username){
         ArrayList<Usuario> usuarios = usuariosDB.obtener();
 
         for (Usuario usuarioActual: usuarios) {
@@ -23,15 +29,15 @@ public class Usuarios {
         return null;
     }
 
-    public void crearUsuario(Usuario usuario){
-        if (obtenerUsuario(usuario.nombreUsuario) != null){
+    public void crear(Usuario usuario){
+        if (obtener(usuario.nombreUsuario) != null){
             return;
         }
 
         usuariosDB.insertar(usuario);
     }
 
-    public void borrarUsuario(String username){
+    public void borrar(String username){
         Usuario usuario = new Usuario();
         usuario.nombreUsuario = username;
         usuariosDB.borrar(usuario);

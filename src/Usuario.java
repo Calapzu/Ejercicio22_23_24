@@ -11,6 +11,6 @@ public class Usuario {
                 + "nombre" + nombre + "\r\n"
                 + "apellidos" + apellidos + "\r\n"
                 + "email" + email + "\r\n"
-                + "nivel de acceso: " + "\r\n";
+                + "nivel de acceso: " + nivelAcceso +"\r\n";
     }
 }

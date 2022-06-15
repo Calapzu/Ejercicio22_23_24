@@ -21,29 +21,30 @@ public class Principal {
         usuario3.email = "ejemplos3@open-bootcamp.com";
         usuario3.nivelAcceso = 5;
 
-        Usuarios usuarios = new Usuarios();
-        usuarios.crearUsuario(usuario);
-        usuarios.crearUsuario(usuario2);
-        usuarios.crearUsuario(usuario3);
+        Usuarios usuarios = new Usuarios(new UsuariosDBFichero());
+        usuarios.crear(usuario);
+        usuarios.crear(usuario2);
+        usuarios.crear(usuario3);
+
 
         //Usuario openbootcamp = usuarios.obtenerUsuario("openbootcamp");
         //System.out.println("Email del usuario obtenido: " + openbootcamp.email);
 
-        UsuariosNiveles openbootcamp = new UsuariosNiveles();
+        /*UsuariosNiveles openbootcamp = new UsuariosNiveles();
         System.out.println("Es adminitrador?: " + openbootcamp.esAdministrador(usuario));
         System.out.println("Es adminitrador?: " + openbootcamp.esAdministrador(usuario2));
-        System.out.println("Es adminitrador?: " + openbootcamp.esAdministrador(usuario3));
+        System.out.println("Es adminitrador?: " + openbootcamp.esAdministrador(usuario3));*/
 
         //usuarios.borrarUsuario("openbootcamp");
         //usuarios.borrarUsuario("openbootcamp3");
-        for (Usuario a : usuarios.listarUsuarios()) {
+        for (Usuario a : usuarios.listar()) {
             System.out.println("Usuario actual: " + a.nombreUsuario);
             System.out.println("----------------" + "-".repeat(a.nombreUsuario.length()));
             System.out.println(a);
             System.out.println();
         }
 
-        System.out.println("Totla inserciones: " + usuarios.usuariosDB.getTotalInserciones());
-        System.out.println("Totla inserciones: " + usuarios.usuariosDB.getTotalElimianciones());
+        //System.out.println("Totla inserciones: " + usuarios.usuariosDB.getTotalInserciones());
+        //System.out.println("Totla inserciones: " + usuarios.usuariosDB.getTotalElimianciones());
     }
 }

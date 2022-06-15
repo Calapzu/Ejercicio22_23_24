@@ -1,4 +1,4 @@
-public class UsuariosDBEstadisticas extends UsuariosDB {
+public class UsuariosDBEstadisticas extends UsuariosDBFichero {
     private int totalInserciones = 0;
     private int totalElimianciones = 0;
 
