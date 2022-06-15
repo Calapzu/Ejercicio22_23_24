@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class Usuarios {
 
-    private UsuariosDB usuariosDB = new UsuariosDB();
+     UsuariosDBEstadisticas usuariosDB = new UsuariosDBEstadisticas();
 
     public ArrayList<Usuario> listarUsuarios() {
-        return usuariosDB.convertirUsuariosFicheroEnArrayList();
+        return usuariosDB.obtener();
     }
 
     public Usuario obtenerUsuario(String username){
-        ArrayList<Usuario> usuarios = usuariosDB.convertirUsuariosFicheroEnArrayList();
+        ArrayList<Usuario> usuarios = usuariosDB.obtener();
 
         for (Usuario usuarioActual: usuarios) {
             if (usuarioActual.nombreUsuario.equalsIgnoreCase(username)){

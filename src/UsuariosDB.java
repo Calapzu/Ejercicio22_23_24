@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class UsuariosDB {
     public String ficheroDatos = "usuarios.txt";
 
-    public ArrayList<Usuario> convertirUsuariosFicheroEnArrayList()  {
+    public ArrayList<Usuario> obtener()  {
         ArrayList<Usuario> usuarios = new ArrayList();
         try {
             Scanner scanner = new Scanner(new File(ficheroDatos));
@@ -34,6 +34,18 @@ public class UsuariosDB {
         return usuarios;
     }
 
+    public Usuario buscar(Usuario usuario) {
+        ArrayList<Usuario> usuarios = obtener();
+
+        for (Usuario usuarioActual : usuarios) {
+            if (usuarioActual.nombreUsuario.equalsIgnoreCase(usuario.nombreUsuario)) {
+                return usuarioActual;
+            }
+        }
+
+        return null;
+    }
+
     public void insertar(Usuario usuario){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(ficheroDatos, true);
@@ -56,7 +68,7 @@ public class UsuariosDB {
     }
 
     public void borrar(Usuario usuario) {
-        ArrayList<Usuario> usuarios = convertirUsuariosFicheroEnArrayList();
+        ArrayList<Usuario> usuarios = obtener();
 
         for (int i=0; i < usuarios.size(); i++){
             if (usuarios.get(i).nombreUsuario.equalsIgnoreCase(usuario.nombreUsuario)){
@@ -77,4 +89,5 @@ public class UsuariosDB {
         } catch (FileNotFoundException e) {
         }
     }
+
 }
